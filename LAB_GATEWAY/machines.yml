@@ -1,0 +1,9 @@
+- name: GatewayLabGw
+  cpus: 1
+  memory: 1024
+  box: debian/buster64
+
+- name: ClientLabGw
+  cpus: 1
+  memory: 1024
+  box: debian/buster64

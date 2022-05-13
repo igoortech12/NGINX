@@ -1,0 +1,17 @@
+require 'yaml'
+filevar = YAML.load_file("machines.yml")
+
+Vagrant.configure("2") do |config|
+  filevar.each do |machines|
+    config.vm.define machines["name"] do |server|
+      server.vm.hostname = machines["name"]
+      server.vm.box = machines["box"]
+      
+      server.vm.provider "virtualbox" do |vb|
+        vb.memory = machines["memory"]
+        vb.cpus = machines["cpus"]
+        vb.name = machines["name"]
+      end
+    end
+  end
+end
