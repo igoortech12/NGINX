@@ -1,0 +1,79 @@
+VMs: Ubuntu Server 18.04
+
+VM1 Gateway_LabGW 192.168.1.16
+
+- Duas interface ethernet. Um bridge e outra internal.
+- COnfigurando interface ehternet internal
+    sudo vim /etc/network/interfaces
+
+auto enp0s8
+iface enp0s8 inet static
+address 192.168.200.1
+network 192.168.200.0
+broadcast 192.168.200.255
+netmask 255.255.255.0
+
+- HAbilitando redirecionamento de pacote de rede
+    sudo vim  /etc/sysctl.conf
+Descomentar net.ipv4.ip_forward=1
+
+- CONfigurando IPTables
+    sudo iptables -L
+
+- Script para montar tablela IPTables.
+    sudo vim /usr/local/sbin/gateway.sh
+
+#!/bin/bash
+
+iptables -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
+iptables -A FORWARD -m state --state RELATED,ESTABLISHED -j ACCEPT
+iptables -t nat -A POSTROUTING -o enp0s3 -j MASQUERADE
+
+- Dando permissões        
+    sudo chmod +x /usr/local/sbin/gateway.sh
+
+- Subindo o script
+    sudo /usr/local/sbin/gateway.sh
+
+- COnfigurar sistema para iniciar com script iptables.
+    sudo vim /etc/systemd/system/gateway.service
+
+[Unit]
+Description=Gateway
+After=network.target
+
+[Service]
+ExecStart=/usr/local/sbin/gateway.sh
+
+[Install]
+WantedBy=multi-user.target
+~                                                                                                                                                                                                                                             
+~           
+
+    sudo systemctl enable gateway.service
+    sudo systemctl status gateway.service      
+
+    sudo reboot                
+
+VM2 Client_LabGW 192.168.200.2
+
+Uma interface ethernet com tipo internal.
+
+- COnfigurando interface ehternet internal
+    sudo vim /etc/network/interfaces
+
+auto enp0s3
+iface enp0s3 inet static
+address 192.168.200.2
+network 192.168.200.0
+broadcast 192.168.200.255
+netmask 255.255.255.0
+gateway 192.168.200.1
+dns-nameservers 8.8.8.8
+
+    sudo vim /etc/resolv.conf
+nameserver 8.8.8.8
+
+    sudo reboot
+
+

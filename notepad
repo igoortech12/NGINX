@@ -2,3 +2,12 @@ TUTORAIL ONE: https://www.youtube.com/watch?v=JAFFkDKvZlo
 Proxy reverse with NGINX
 
 
+ O QUE É NGINX?
+ NGINX é um servidor de web que também pode ser utilizado como:
+ - servidor http/https
+ - proxy http/https reverso
+ - balanceador de carga
+ - proxy de email
+ - serviço de cache
+
+ 
