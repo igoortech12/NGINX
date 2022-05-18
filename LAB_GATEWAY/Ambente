@@ -53,7 +53,53 @@ WantedBy=multi-user.target
     sudo systemctl enable gateway.service
     sudo systemctl status gateway.service      
 
-    sudo reboot                
+    sudo reboot         
+
+- Instalando NGInx
+    sudo apt update
+    sudo apt install nginx -y       
+
+- Removendo configurações padrão do NGINX
+    sudo rm /etc/nginx/sites-enabled/default
+    sudo rm /etc/nginx/sites-available/default
+
+- Criando nova configuração
+    sudo vim /etc/nginx/sites-available/artigos.aied.com.br.conf
+
+proxy_cache_path /tmp/web levels=1:2 keys_zone=web:10m inactive=10m max_size=1000M;
+ 
+upstream backend  {
+  server 192.168.200.2:80;
+}
+ 
+server {
+    listen 80;
+    server_name artigos.aied.com.br;
+    location / {
+        proxy_set_header x-real-IP $remote_addr;
+        proxy_set_header x-forwarded-for $proxy_add_x_forwarded_for;
+        proxy_set_header host $http_host;
+        proxy_pass http://backend;
+        proxy_cache web;
+    }
+}
+
+
+- Criando link simbolico do diretorio available para enabled
+    sudo ln -s /etc/nginx/sites-available/artigos.aied.com.br.conf /etc/nginx/sites-enabled/artigos.aied.com.br.conf
+
+- Reiniciando o serviço NGINX
+    sudo systemctl restart nginx.service
+    sudo systemctl status nginx.service
+
+- Mascarando acesso DNS com registro local.
+    
+
+
+
+
+
+
 
 VM2 Client_LabGW 192.168.200.2
 
@@ -75,5 +121,21 @@ dns-nameservers 8.8.8.8
 nameserver 8.8.8.8
 
     sudo reboot
+
+---------------------------------------------------
+
+Configurando APACHE2
+
+VM2 Client_LabGW 192.168.200.2
+
+- Instalando apache2
+    sudo apt install apache2 -y
+
+- Verificando Status do serviço Apache2
+    sudo systemctl status apache2.service
+
+- Testando Apache2
+    cd /tmp
+    wget http://127.0.0.1
 
 
