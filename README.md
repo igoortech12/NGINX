@@ -1,7 +1,6 @@
 #<p align="center"> ![logo_nginx](https://user-images.githubusercontent.com/58611969/169286589-3da66cbf-d7d0-4f9f-ae96-2a68da2213b9.png) </p><br/>
 
 ![Badge em Desenvolvimento](http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge)
-![GitHub Org's stars](https://img.shields.io/github/stars/camilafernanda?style=social)
 
 
 <h1 align="center"> NGINX </h1>
