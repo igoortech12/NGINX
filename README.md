@@ -1,9 +1,6 @@
 <p align="center">
   <img src="[http://some_place.com/image.png](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.nginx.com%2Fblog%2F&psig=AOvVaw2f4lMLHwwxhet7Zh_O0W3-&ust=1653051498475000&source=images&cd=vfe&ved=0CAkQjRxqFwoTCJjhqe_O6_cCFQAAAAAdAAAAABAD)" />
-</p>
-
-
-#<p align="center"> ![logo_nginx](https://user-images.githubusercontent.com/58611969/169286589-3da66cbf-d7d0-4f9f-ae96-2a68da2213b9.png) </p><br/>
+</p><br/>
 
 ![Badge em Desenvolvimento](http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge)
 
