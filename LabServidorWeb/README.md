@@ -18,3 +18,6 @@ Em seguida clique no icone folder e selecione o arquivo .ova e clique em OK.
 Clique em Next>, então clique em Import
 ![image](https://user-images.githubusercontent.com/58611969/169564700-b5f3fe10-23ba-49ef-8883-98addeca2418.png)
 
+Agora é só aguardar.
+
+Com a VM pronta. Vamos ligá-la
