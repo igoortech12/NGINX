@@ -17,7 +17,7 @@ Repositório para gravar pequenos projetos de utilização e configuração do N
 
 ## :hammer: Funcionalidades do projeto
 
-- `Lab Proxy em VMs`: Configuração do laboratório (Virtualbox); Instalação e configuração do NGINX como Proxy.
+- `Lab Servidor Web`: Configuração do laboratório (Virtualbox); Instalação e configuração do NGINX como Proxy.
 - `Lab Proxy Reverso em VMs`: Configuração do laboratório (Virtualbox); Instalação e configuração do NGINX como Proxy Reverso
 - `Lab Proxy em Docker`: Instalação do Docker e configuração dos containeres para o laboratório do servidor Proxy.
 - `Lab Proxy Reverso em Docker`: Instalação do Docker e configuração dos containeres para o laboratório do servidor Proxy Reverso.
