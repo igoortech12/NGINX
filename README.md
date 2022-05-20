@@ -22,7 +22,7 @@ Repositório para gravar pequenos projetos de utilização e configuração do N
 - `Lab Proxy em Docker`: Instalação do Docker e configuração dos containeres para o laboratório do servidor Proxy.
 - `Lab Proxy Reverso em Docker`: Instalação do Docker e configuração dos containeres para o laboratório do servidor Proxy Reverso.
 
-heavy_check_mark Técnicas e tecnologias utilizadas
+## :heavy_check_mark: Técnicas e tecnologias utilizadas
 
     Virtualização
     Conteinerização
